@@ -39,9 +39,29 @@ namespace CalculatorApp
         {
             Console.WriteLine("Калькулятор C#");
             
-            // Тестирование функций
+            // Тестирование базовых функций
             Console.WriteLine($"5 + 3 = {Calculator.Add(5, 3)}");
-            Console.WriteLine($"10 / 0 = {Calculator.Divide(10, 0)}"); // Вызовет исключение
+            Console.WriteLine($"10 - 4 = {Calculator.Subtract(10, 4)}");
+            Console.WriteLine($"6 * 7 = {Calculator.Multiply(6, 7)}");
+            
+            // Тестирование деления (с обработкой исключения)
+            try
+            {
+                Console.WriteLine($"20 / 5 = {Calculator.Divide(20, 5)}");
+                Console.WriteLine($"10 / 0 = {Calculator.Divide(10, 0)}"); // Вызовет исключение
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Ошибка: Деление на ноль невозможно!");
+            }
+            
+            // Демонстрация новой функции - возведение в степень
+            Console.WriteLine($"2 ^ 8 = {Calculator.Power(2, 8)}"); // 256
+            Console.WriteLine($"5 ^ 3 = {Calculator.Power(5, 3)}"); // 125
+            Console.WriteLine($"10 ^ 2 = {Calculator.Power(10, 2)}"); // 100
+            
+            Console.WriteLine("Нажмите любую клавишу для выхода...");
+            Console.ReadKey();
         }
     }
 }
